@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partner Mentor – MCAIPP Complete Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ms:#0078d4; --ms-dk:#005a9e; --ms-xdk:#003366; --ms-lt:#deecf9; --ms-xlt:#f0f6fd;
+  --teal:#038387; --purple:#8764b8; --green:#107c10; --orange:#ca5010; --amber:#b8860b;
+  --red:#a4262c; --lime:#498205; --navy:#003f6e;
+  --white:#fff; --g50:#f7f8fa; --g100:#eef0f4; --g200:#dde1e9; --g400:#8d95a3;
+  --g600:#505869; --g800:#1a2030;
+  --hh:56px; --th:48px;
+  --tab-accent: var(--ms);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--g50);color:var(--g800);min-height:100vh;font-size:14px;}
+
+/* ── TOP NAV ── */
+.topnav {
+  position:fixed;top:0;left:0;right:0;height:var(--hh);
+  background:var(--ms-xdk);
+  display:flex;align-items:center;padding:0 1.5rem;gap:1rem;
+  z-index:300;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.tn-logo {
+  display:flex;align-items:center;gap:.6rem;
+  font-family:'Fraunces',serif;font-weight:700;font-size:1rem;
+  color:#fff;letter-spacing:-.01em;flex-shrink:0;
+}
+.tn-icon {width:28px;height:28px;background:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;}
+.tn-icon svg{width:17px;height:17px;}
+.tn-sep{width:1px;height:20px;background:rgba(255,255,255,.2);}
+.tn-sub{color:rgba(255,255,255,.55);font-size:.78rem;font-weight:400;}
+.tn-right{margin-left:auto;display:flex;align-items:center;gap:.5rem;}
+.tn-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.85);font-size:.67rem;font-weight:600;padding:.2rem .6rem;border-radius:20px;letter-spacing:.05em;}
+.tn-search {
+  display:flex;align-items:center;gap:.4rem;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
+  border-radius:8px;padding:.3rem .7rem;
+}
+.tn-search input {
+  background:transparent;border:none;outline:none;color:#fff;font-size:.78rem;
+  font-family:inherit;width:160px;
+}
+.tn-search input::placeholder{color:rgba(255,255,255,.4);}
+.tn-search svg{width:13px;height:13px;stroke:rgba(255,255,255,.45);flex-shrink:0;}
+
+/* ── TAB BAR ── */
+.tabbar {
+  position:fixed;top:var(--hh);left:0;right:0;height:var(--th);
+  background:#fff;border-bottom:1px solid var(--g200);
+  display:flex;align-items:stretch;padding:0 1.5rem;
+  z-index:200;overflow-x:auto;scrollbar-width:none;gap:0;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+.tabbar::-webkit-scrollbar{display:none;}
+.tab-btn {
+  flex-shrink:0;display:flex;align-items:center;gap:.4rem;
+  padding:0 1.1rem;font-size:.78rem;font-weight:500;color:var(--g400);
+  border:none;background:transparent;cursor:pointer;
+  border-bottom:2px solid transparent;transition:all .18s;
+  white-space:nowrap;font-family:inherit;
+  position:relative;top:1px;
+}
+.tab-btn:hover{color:var(--g800);}
+.tab-btn.active{color:var(--ms-dk);border-bottom-color:var(--ms);font-weight:600;}
+.tab-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+
+/* ── MAIN ── */
+.main {
+  margin-top:calc(var(--hh) + var(--th));
+  min-height:calc(100vh - var(--hh) - var(--th));
+}
+
+/* ── TAB PANELS ── */
+.panel{display:none;padding:2rem 2.5rem 4rem;max-width:1140px;margin:0 auto;}
+.panel.active{display:block;}
+
+/* ── HERO STRIP ── */
+.hero-strip {
+  background:linear-gradient(120deg,var(--ms-xdk) 0%,var(--ms-dk) 50%,var(--ms) 100%);
+  border-radius:14px;padding:2rem 2.5rem;color:#fff;
+  margin-bottom:2rem;position:relative;overflow:hidden;
+}
+.hero-strip::after{content:'';position:absolute;top:-60px;right:-60px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.04);}
+.hero-strip h1{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:.4rem;}
+.hero-strip p{font-size:.85rem;opacity:.78;max-width:520px;line-height:1.65;margin-bottom:1.25rem;}
+.hero-kpis{display:flex;gap:2rem;flex-wrap:wrap;}
+.kpi-num{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:700;line-height:1;}
+.kpi-lbl{font-size:.65rem;opacity:.6;text-transform:uppercase;letter-spacing:.07em;margin-top:.1rem;}
+
+/* ── SECTION CARD ── */
+.sec{margin-bottom:1.75rem;animation:fadeUp .4s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.sec-hd{display:flex;align-items:center;gap:.6rem;margin-bottom:.85rem;padding-bottom:.6rem;border-bottom:2px solid var(--g100);}
+.sec-badge{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#fff;flex-shrink:0;}
+.sec-title{font-size:.94rem;font-weight:600;letter-spacing:-.01em;}
+.sec-cnt{margin-left:auto;font-size:.65rem;font-weight:600;color:var(--ms-dk);background:var(--ms-lt);padding:.13rem .48rem;border-radius:20px;flex-shrink:0;}
+
+/* ── FAQ CARD ── */
+.faq-card{background:#fff;border:1px solid var(--g200);border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.fr{display:flex;align-items:flex-start;gap:.65rem;padding:.68rem .95rem;border-bottom:1px solid var(--g100);cursor:pointer;transition:background .12s;}
+.fr:last-child{border-bottom:none;}
+.fr:hover,.fr.open{background:var(--ms-xlt);}
+.fi{font-size:.62rem;font-weight:700;min-width:18px;padding-top:.18rem;opacity:.5;flex-shrink:0;}
+.fq{font-size:.81rem;line-height:1.47;font-weight:500;flex:1;}
+.fch{width:12px;height:12px;flex-shrink:0;opacity:.3;transition:transform .2s;margin-top:.25rem;}
+.fr.open .fch{transform:rotate(180deg);opacity:.6;}
+.fa{display:none;padding:.55rem .95rem .75rem 2.1rem;font-size:.77rem;line-height:1.65;color:var(--g600);background:#f8fbff;border-bottom:1px solid var(--ms-lt);}
+.fa.open{display:block;}
+.fa ul{margin:.25rem 0 .15rem .9rem;}
+.fa li{margin-bottom:.18rem;}
+.fa strong{color:var(--ms-dk);font-weight:600;}
+.tag{display:inline-block;font-size:.63rem;font-weight:700;padding:.06rem .33rem;border-radius:4px;margin-right:.18rem;}
+.ent{background:var(--ms-lt);color:var(--ms-dk);}
+.smb{background:#e6f4e6;color:#1a5c1a;}
+
+/* ── MATRIX TABLE ── */
+.tbl-wrap{overflow-x:auto;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.mtbl{width:100%;border-collapse:collapse;font-size:.75rem;background:#fff;border:1px solid var(--g200);}
+.mtbl th,.mtbl td{padding:.52rem .75rem;border:1px solid var(--g200);text-align:left;vertical-align:middle;}
+.mtbl thead th{font-weight:600;font-size:.68rem;letter-spacing:.02em;color:#fff;background:var(--ms);}
+.mtbl .rh{background:var(--g100);font-weight:700;font-size:.7rem;color:var(--g800);}
+.mtbl td.pts{font-weight:700;color:var(--ms-dk);font-size:.86rem;}
+.mtbl tr:hover td{background:var(--ms-xlt);}
+
+/* ── GRID LAYOUTS ── */
+.grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.85rem;}
+.grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem;}
+
+/* ── INFO CARD ── */
+.icard{background:#fff;border:1px solid var(--g200);border-radius:10px;padding:.9rem 1rem;box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.icard h4{font-size:.83rem;font-weight:600;margin-bottom:.45rem;color:var(--g800);}
+.icard p,.icard li{font-size:.76rem;color:var(--g600);line-height:1.6;}
+.icard ul{margin-left:.9rem;}
+.icard li{margin-bottom:.15rem;}
+
+/* ── STEP CARDS ── */
+.step-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.8rem;}
+.step-card{background:#fff;border:1px solid var(--g200);border-radius:10px;padding:.9rem 1rem;box-shadow:0 1px 3px rgba(0,0,0,.04);display:flex;gap:.7rem;align-items:flex-start;}
+.step-n{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0;color:#fff;}
+.step-title{font-size:.82rem;font-weight:600;margin-bottom:.22rem;}
+.step-body{font-size:.74rem;color:var(--g600);line-height:1.5;}
+.step-out{margin-top:.3rem;font-size:.68rem;font-weight:600;color:var(--ms-dk);background:var(--ms-lt);padding:.12rem .42rem;border-radius:6px;display:inline-block;}
+
+/* ── CERT CARDS ── */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.8rem;}
+.cert-card{background:#fff;border:1px solid var(--g200);border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.cert-head{padding:.55rem .85rem;font-size:.74rem;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:space-between;}
+.cert-lvl{font-size:.58rem;font-weight:600;background:rgba(255,255,255,.2);padding:.08rem .35rem;border-radius:8px;}
+.cert-sub{padding:.32rem .85rem;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;}
+.cert-item{padding:.35rem .85rem;font-size:.74rem;border-bottom:1px solid var(--g100);line-height:1.4;}
+.cert-item:last-child{border-bottom:none;}
+
+/* ── SCORING DEEP DIVE ── */
+.sd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:.8rem;}
+.sd-card{background:#fff;border:1px solid var(--g200);border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.sd-head{padding:.58rem .85rem;font-size:.76rem;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:space-between;}
+.sd-pts{font-size:.63rem;background:rgba(255,255,255,.2);padding:.08rem .35rem;border-radius:8px;font-weight:600;}
+.sd-elig{padding:.42rem .85rem;font-size:.71rem;font-weight:500;border-bottom:1px solid var(--g100);color:var(--g600);}
+.sd-body{padding:.42rem .85rem;}
+.sd-row{padding:.28rem 0;font-size:.74rem;border-bottom:1px dashed var(--g100);line-height:1.45;}
+.sd-row:last-child{border-bottom:none;}
+.sd-row strong{color:var(--ms-dk);}
+.formula{background:var(--g100);border-radius:6px;padding:.4rem .65rem;font-family:monospace;font-size:.72rem;color:var(--g800);margin:.3rem 0;}
+
+/* ── MISTAKE LIST ── */
+.mk-list{display:flex;flex-direction:column;gap:.45rem;}
+.mk{background:#fff;border:1px solid var(--g200);border-radius:8px;padding:.65rem .9rem;display:flex;gap:.65rem;align-items:flex-start;box-shadow:0 1px 2px rgba(0,0,0,.04);}
+.mk-n{width:22px;height:22px;border-radius:50%;background:var(--orange);color:#fff;font-size:.63rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.08rem;}
+.mk-txt{font-size:.79rem;line-height:1.55;}
+.mk-txt strong{font-weight:600;color:var(--orange);}
+
+/* ── NOTICE ── */
+.notice{background:var(--ms-lt);border:1px solid var(--ms);border-radius:8px;padding:.6rem .95rem;font-size:.76rem;color:var(--ms-dk);margin-bottom:.85rem;line-height:1.55;}
+
+/* ── BENEFITS TABLE ── */
+.btbl-wrap{overflow-x:auto;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.05);margin-bottom:1rem;}
+.btbl{width:100%;border-collapse:collapse;font-size:.74rem;background:#fff;border:1px solid var(--g200);}
+.btbl th{background:var(--ms-xdk);color:#fff;padding:.52rem .75rem;text-align:left;font-size:.68rem;font-weight:600;}
+.btbl td{padding:.45rem .75rem;border-bottom:1px solid var(--g100);vertical-align:middle;}
+.btbl tr:last-child td{border-bottom:none;}
+.btbl tr:hover td{background:var(--ms-xlt);}
+.btbl td.val{font-weight:600;color:var(--ms-dk);}
+.new-badge{font-size:.56rem;font-weight:700;background:#107c10;color:#fff;padding:.03rem .28rem;border-radius:3px;margin-left:.25rem;vertical-align:middle;}
+
+/* ── PAL STEPS ── */
+.pal-steps{display:flex;flex-direction:column;gap:.55rem;}
+.pal-step{display:flex;gap:.7rem;align-items:flex-start;background:#fff;border:1px solid var(--g200);border-radius:8px;padding:.65rem .9rem;}
+.pal-n{width:25px;height:25px;border-radius:50%;background:var(--ms);color:#fff;font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pal-txt{font-size:.79rem;line-height:1.55;}
+
+/* ── SCORE CALCULATOR ── */
+.calc-card{background:#fff;border:1px solid var(--g200);border-radius:12px;padding:1.25rem 1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-bottom:1.5rem;}
+.calc-title{font-size:.9rem;font-weight:700;margin-bottom:1rem;color:var(--g800);}
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.85rem;margin-bottom:1rem;}
+.calc-field label{display:block;font-size:.7rem;font-weight:600;color:var(--g600);margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.05em;}
+.calc-field input[type=range]{width:100%;accent-color:var(--ms);}
+.calc-field .val-display{font-size:.82rem;font-weight:700;color:var(--ms-dk);margin-top:.2rem;}
+.calc-result{display:flex;align-items:center;gap:1.5rem;padding:1rem 1.25rem;background:var(--g50);border-radius:10px;border:1px solid var(--g200);}
+.calc-score{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:700;color:var(--ms);line-height:1;}
+.calc-score-lbl{font-size:.72rem;color:var(--g400);margin-top:.15rem;}
+.calc-bar-wrap{flex:1;}
+.calc-bar-track{height:10px;background:var(--g200);border-radius:10px;overflow:hidden;margin-bottom:.4rem;}
+.calc-bar-fill{height:100%;background:linear-gradient(90deg,var(--ms-lt),var(--ms));border-radius:10px;transition:width .3s ease;}
+.calc-status{font-size:.76rem;font-weight:600;}
+.calc-status.pass{color:var(--green);}
+.calc-status.fail{color:var(--orange);}
+
+/* ── COLORS ── */
+.c-ms{background:var(--ms);}   .c-dk{background:var(--ms-dk);}
+.c-teal{background:var(--teal);} .c-purple{background:var(--purple);}
+.c-green{background:var(--green);} .c-orange{background:var(--orange);}
+.c-amber{background:var(--amber);} .c-red{background:var(--red);}
+.c-lime{background:var(--lime);} .c-navy{background:var(--navy);}
+
+mark{background:#fff2a8;border-radius:2px;padding:0 2px;}
+.fr.hidden{display:none;}
+
+/* ── FOOTER ── */
+footer{background:#fff;border-top:1px solid var(--g200);padding:1rem 2.5rem;font-size:.72rem;color:var(--g400);text-align:center;}
+footer b{color:var(--ms);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){.panel{padding:1rem 1rem 3rem;}.topnav{padding:0 1rem;}.tn-search{display:none;}}
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<header class="topnav">
+  <div class="tn-logo">
+    <div class="tn-icon">
+      <svg viewBox="0 0 20 20"><rect x="1" y="1" width="8" height="8" fill="#f25022"/><rect x="11" y="1" width="8" height="8" fill="#7fba00"/><rect x="1" y="11" width="8" height="8" fill="#00a4ef"/><rect x="11" y="11" width="8" height="8" fill="#ffb900"/></svg>
+    </div>
+    Partner Mentor
+  </div>
+  <div class="tn-sep"></div>
+  <span class="tn-sub">MCAIPP Complete Guide</span>
+  <div class="tn-right">
+    <div class="tn-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="search-input" placeholder="Search questions…">
+    </div>
+    <div class="tn-badge">55 Slides</div>
+  </div>
+</header>
+
+<!-- TAB BAR -->
+<nav class="tabbar" id="tabbar">
+  <button class="tab-btn active" data-tab="overview" onclick="switchTab('overview',this)">
+    <span class="tab-dot" style="background:#0078d4"></span>Overview
+  </button>
+  <button class="tab-btn" data-tab="enroll" onclick="switchTab('enroll',this)">
+    <span class="tab-dot" style="background:#038387"></span>A–C · Enrollment
+  </button>
+  <button class="tab-btn" data-tab="designation" onclick="switchTab('designation',this)">
+    <span class="tab-dot" style="background:#ca5010"></span>D · Achieving Designation
+  </button>
+  <button class="tab-btn" data-tab="certs" onclick="switchTab('certs',this)">
+    <span class="tab-dot" style="background:#b8860b"></span>E · Certifications
+  </button>
+  <button class="tab-btn" data-tab="association" onclick="switchTab('association',this)">
+    <span class="tab-dot" style="background:#107c10"></span>F · PAL &amp; Association
+  </button>
+  <button class="tab-btn" data-tab="benefits" onclick="switchTab('benefits',this)">
+    <span class="tab-dot" style="background:#003f6e"></span>G · Benefits
+  </button>
+  <button class="tab-btn" data-tab="specializations" onclick="switchTab('specializations',this)">
+    <span class="tab-dot" style="background:#ca5010"></span>H–I · Specializations &amp; Incentives
+  </button>
+  <button class="tab-btn" data-tab="gtm" onclick="switchTab('gtm',this)">
+    <span class="tab-dot" style="background:#8764b8"></span>J–K · GTM &amp; Partner Center
+  </button>
+  <button class="tab-btn" data-tab="deepdive" onclick="switchTab('deepdive',this)">
+    <span class="tab-dot" style="background:#005a9e"></span>Deep Dives
+  </button>
+  <button class="tab-btn" data-tab="journey" onclick="switchTab('journey',this)">
+    <span class="tab-dot" style="background:#498205"></span>Journey &amp; Mistakes
+  </button>
+  <button class="tab-btn" data-tab="resources" onclick="switchTab('resources',this)">
+    <span class="tab-dot" style="background:#a4262c"></span>Resources
+  </button>
+  <button class="tab-btn" data-tab="calculator" onclick="switchTab('calculator',this)">
+    <span class="tab-dot" style="background:#0078d4"></span>Score Calculator
+  </button>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+  <!-- ══════════ OVERVIEW ══════════ -->
+  <div id="tab-overview" class="panel active">
+    <div class="hero-strip">
+      <h1>Project Partner Mentor</h1>
+      <p>Your complete onboarding guide to the Microsoft AI Cloud Partner Program — all 6 solution areas, 100+ FAQs, scoring matrices, certification lists, and deep dives, in one place. By Bryan Pang, April 2026.</p>
+      <div class="hero-kpis">
+        <div><div class="kpi-num">6</div><div class="kpi-lbl">Solution Areas</div></div>
+        <div><div class="kpi-num">55</div><div class="kpi-lbl">Slides</div></div>
+        <div><div class="kpi-num">70+</div><div class="kpi-lbl">Pts to Qualify</div></div>
+        <div><div class="kpi-num">100+</div><div class="kpi-lbl">FAQs</div></div>
+      </div>
+    </div>
+
+    <!-- Scoring Matrix -->
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-purple">∑</div><div class="sec-title">Solution Partner Designation — Scoring Matrix</div></div>
+      <div class="notice">Achieve <strong>70+ points</strong> with &gt;0 in each of 4–5 categories. Maximum 100 points per solution area across Performance, Skilling, and Customer Success.</div>
+      <div class="tbl-wrap">
+        <table class="mtbl">
+          <thead>
+            <tr>
+              <th rowspan="2" style="width:120px;">Metric</th>
+              <th colspan="3" style="text-align:center;background:#003f6e;">☁ Cloud AI Platform</th>
+              <th colspan="2" style="text-align:center;background:#7158b5;">⚡ AI Business Solutions</th>
+              <th style="text-align:center;background:#a4262c;">🛡 Security</th>
+            </tr>
+            <tr>
+              <th style="background:#106ebe;">Infrastructure</th>
+              <th style="background:#1064a0;">Digital &amp; App Innovation</th>
+              <th style="background:#0078d4;">Data &amp; AI</th>
+              <th style="background:#7158b5;">Business Applications</th>
+              <th style="background:#d97706;color:#fff;">Modern Work</th>
+              <th style="background:#a4262c;">Security</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="rh" colspan="7">⚡ Performance</td></tr>
+            <tr><td>Net Customer Adds</td><td class="pts">30</td><td class="pts">30</td><td class="pts">20</td><td class="pts">15</td><td class="pts">20</td><td class="pts">30</td></tr>
+            <tr><td class="rh" colspan="7">🎓 Skilling</td></tr>
+            <tr><td>Intermediate Certs</td><td class="pts">20</td><td class="pts">20</td><td class="pts">20</td><td class="pts">20</td><td class="pts">10</td><td class="pts">20</td></tr>
+            <tr><td>Advanced Certs</td><td class="pts">20</td><td class="pts">20</td><td class="pts">20</td><td class="pts">15</td><td class="pts">15</td><td class="pts">20</td></tr>
+            <tr><td class="rh" colspan="7">✅ Customer Success</td></tr>
+            <tr><td>Usage Growth</td><td class="pts">20</td><td class="pts">20</td><td class="pts">20</td><td class="pts">30</td><td class="pts">30</td><td class="pts">20</td></tr>
+            <tr><td>Deployments</td><td class="pts">10</td><td class="pts">10</td><td class="pts">20</td><td class="pts">20</td><td class="pts">25</td><td class="pts">10</td></tr>
+            <tr style="background:var(--ms-xlt)"><td><strong>Max Total</strong></td><td class="pts" style="color:var(--ms);font-size:.95rem;">100</td><td class="pts" style="color:var(--ms);font-size:.95rem;">100</td><td class="pts" style="color:var(--ms);font-size:.95rem;">100</td><td class="pts" style="color:var(--ms);font-size:.95rem;">100</td><td class="pts" style="color:var(--ms);font-size:.95rem;">100</td><td class="pts" style="color:var(--ms);font-size:.95rem;">100</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Quick-nav cards -->
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-ms">→</div><div class="sec-title">Quick Navigation</div></div>
+      <div class="grid3">
+        <div class="icard" style="cursor:pointer;border-top:3px solid var(--teal);" onclick="switchTabById('enroll')"><h4>A–C · Enrollment &amp; Partner Types</h4><p>Program basics, partner types, solution area selection</p></div>
+        <div class="icard" style="cursor:pointer;border-top:3px solid var(--orange);" onclick="switchTabById('designation')"><h4>D · Achieving Designation</h4><p>Partner Capability Score, 19 Q&amp;As, SMB vs Enterprise</p></div>
+        <div class="icard" style="cursor:pointer;border-top:3px solid var(--amber);" onclick="switchTabById('certs')"><h4>E · Certifications &amp; Skilling</h4><p>Cert lists by solution area, how to link employees</p></div>
+        <div class="icard" style="cursor:pointer;border-top:3px solid var(--green);" onclick="switchTabById('association')"><h4>F · PAL, CPOR &amp; DPOR</h4><p>How Microsoft recognizes your customer work</p></div>
+        <div class="icard" style="cursor:pointer;border-top:3px solid var(--navy);" onclick="switchTabById('benefits')"><h4>G · Partner Benefits</h4><p>Action Pack, 2026 benefits update, product licenses</p></div>
+        <div class="icard" style="cursor:pointer;border-top:3px solid var(--ms);" onclick="switchTabById('deepdive')"><h4>Deep Dives — All 6 Areas</h4><p>Step-by-step scoring for Infrastructure through Security</p></div>
+        <div class="icard" style="cursor:pointer;border-top:3px solid var(--lime);" onclick="switchTabById('journey')"><h4>L–M · Journey &amp; Mistakes</h4><p>Stage-by-stage partner journey, top 10 mistakes</p></div>
+        <div class="icard" style="cursor:pointer;border-top:3px solid var(--red);" onclick="switchTabById('resources')"><h4>Resources &amp; Tools</h4><p>PAL guide, TPD services, logo builder, Partner Center</p></div>
+        <div class="icard" style="cursor:pointer;border-top:3px solid var(--ms);" onclick="switchTabById('calculator')"><h4>🧮 Score Calculator</h4><p>Interactive tool to estimate your Partner Capability Score</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ ENROLLMENT A–C ══════════ -->
+  <div id="tab-enroll" class="panel">
+
+    <!-- Section A -->
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-ms">A</div><div class="sec-title">Enrollment Basics</div><div class="sec-cnt">9 Q&amp;A</div></div>
+      <div class="faq-card" id="faq-a">
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--ms)">01</span><span class="fq">What is the Microsoft Cloud Partner Program?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Microsoft's official partner membership program — formerly the Microsoft Partner Network (MPN), now the <strong>Microsoft AI Cloud Partner Program</strong>. A global community of partners, offerings, and resources to build and deploy successful business solutions.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--ms)">02</span><span class="fq">How do I enroll and become a Microsoft partner?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Visit <strong>partner.microsoft.com</strong> → "Become a Partner." Steps: (1) Create a free account with org info and goals; (2) Confirm company details (address, legal contact, registration number); (3) Validate credentials (email, employment).</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--ms)">03</span><span class="fq">How long does it take to get approved as a partner?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">The sign-up form is quick, but verification may take <strong>a few business days to a couple of weeks</strong>. Microsoft verifies your email (domain ownership) and business details.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--ms)">04</span><span class="fq">Do I need to sign any agreement or contract?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Yes — the <strong>Microsoft Partner Agreement</strong> covering code of conduct, confidentiality, trademark usage, and policy compliance.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--ms)">05</span><span class="fq">What is a "Partner ID" (formerly MPN ID) and why is it important?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">A unique identifier for your organization's partnership with Microsoft. Critical for Partner Admin Link (PAL), applying for programs, and tracking your capability score.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--ms)">06</span><span class="fq">Are there program levels like "Silver" and "Gold" in the new partner program?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>No.</strong> The old Silver and Gold competency levels were <strong>retired in October 2022</strong>. They were replaced with the new Solutions Partner designations.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--ms)">07</span><span class="fq">What is Partner Center and what do I use it for?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">The single destination to manage your business relationship with Microsoft — update company profile, add users, track designation progress, download software/license keys, manage referrals, sign up for incentive programs, and access support.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--ms)">08</span><span class="fq">Do I have to renew my partner membership each year?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Membership stays active while you remain in good standing — no annual reapplication. Paid benefits (Action Pack, Solutions Partner packages) require annual payment. Solutions Partner designations are reviewed yearly.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--ms)">09</span><span class="fq">What if my company has multiple branches or subsidiaries?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Use a <strong>Partner Global Account (PGA)</strong> as the primary account and add each country office or subsidiary as a separate <strong>Partner Location Account (PLA)</strong> underneath.</div>
+      </div>
+    </div>
+
+    <!-- Section B -->
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-teal">B</div><div class="sec-title">Partner Types &amp; Business Models</div><div class="sec-cnt">7 Q&amp;A</div></div>
+      <div class="faq-card">
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--teal)">01</span><span class="fq">What kinds of partners does Microsoft work with (ISV, SI, MSP, etc.)?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><ul><li><strong>ISV</strong> — Builds/sells own software/SaaS on Azure, Teams, or Dynamics 365</li><li><strong>SI</strong> — Delivers customer projects without reselling licenses</li><li><strong>MSP</strong> — Provides ongoing monitoring, management, and support</li><li><strong>VAR</strong> — Resells licenses + services (often via CSP)</li><li><strong>CSP Partner</strong> — Sells cloud subscriptions. Direct bills Microsoft; Indirect via distributor</li><li><strong>Advisory/Services-only</strong> — Consulting/deployment without reselling; recognized via PAL/CPOR</li></ul></div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--teal)">02</span><span class="fq">Do I have to sell Microsoft products (be a reseller) to join the partner program?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>No.</strong> Many partners only provide advisory or deployment services. Use PAL or CPOR to get credit. Associations are the <em>sole mechanism</em> by which points are acknowledged.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--teal)">03</span><span class="fq">What's the difference between a Microsoft partner and a Cloud Solution Provider (CSP)?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">"Microsoft partner" is broad — any organization in the program. A <strong>CSP</strong> specifically resells Microsoft cloud subscriptions (Azure, M365, Dynamics 365) directly or via a distributor. All CSPs are partners, but not all partners are CSPs.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--teal)">04</span><span class="fq">We're an ISV. Is the Cloud Partner Program relevant to us?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Yes.</strong> Access technical resources, training, and support. List applications on the Microsoft commercial marketplace. Earn a Solutions Partner designation (e.g., Digital &amp; App Innovation if built on Azure) to demonstrate cloud expertise.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--teal)">05</span><span class="fq">What if our company only offers services or consulting (no proprietary software)?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Many Microsoft partners are services-only. Pursue the relevant Solutions Partner designation and get credit for driving usage/deployments through partner association (PAL for Azure, CPOR for M365 projects). Being "services-only" does not limit your ability to succeed.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--teal)">06</span><span class="fq">What does it mean to be an "Advisory" partner?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Partners who advise customers without directly reselling. Use <strong>CPOR or PAL</strong> association methods so Microsoft knows you influenced those customer deployments.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--teal)">07</span><span class="fq">What's the difference between being a partner in MCPP vs being a distributor or LSP?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">A <strong>Distributor (Indirect Provider)</strong> wholesales Microsoft products to other partners — very different track, high requirements. An <strong>LSP</strong> sells volume licenses under enterprise agreements. Unless your model is recruiting other resellers, you are likely a standard partner or CSP reseller.</div>
+      </div>
+    </div>
+
+    <!-- Section C -->
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-purple">C</div><div class="sec-title">Designations &amp; Solution Areas</div><div class="sec-cnt">6 Q&amp;A</div></div>
+      <div class="faq-card">
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">01</span><span class="fq">What is a "Solutions Partner" designation?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">An earned credential showing proven capability and success in a specific Microsoft solution area. <strong>6 solution areas:</strong> Data &amp; AI (Azure), Digital &amp; App Innovation (Azure), Infrastructure (Azure), Business Applications, Modern Work, Security.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">02</span><span class="fq">What happened to the old Gold and Silver competencies?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Retired in October 2022.</strong> Microsoft transitioned from the legacy Gold/Silver competency system to the new Solutions Partner designations based on a 100-point scoring model.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">03</span><span class="fq">Is there a designation just for being a general Microsoft partner?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>No.</strong> The current program is structured around specific solution areas. If you don't yet qualify for a Solutions Partner designation, you remain a partner member without a specific designation.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">04</span><span class="fq">How do I know which Solution Area is right for my company?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><ul><li><strong>Infrastructure (Azure)</strong> → Migrate/manage cloud resources</li><li><strong>Digital &amp; App Innovation</strong> → App development, modernization, DevOps</li><li><strong>Data &amp; AI (Azure)</strong> → Analytics, data warehousing, AI/ML on Azure</li><li><strong>Business Applications</strong> → Dynamics 365 or Power Platform</li><li><strong>Modern Work</strong> → Office 365, Teams, SharePoint, device management</li><li><strong>Security</strong> → Cybersecurity (Defender, Sentinel, Entra, Purview)</li></ul></div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">05</span><span class="fq">Do we need to choose a single solution area, or can we work in multiple?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Free to focus on one or multiple areas. Each designation is <strong>earned independently</strong>. Many partners start with one area and earn multiple designations over time.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">06</span><span class="fq">Can I change or add Solution Areas later?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Yes.</strong> You don't "pick" a solution area at signup — designations are something you work towards. Partner Center tracks progress separately for each area.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ ACHIEVING DESIGNATION ══════════ -->
+  <div id="tab-designation" class="panel">
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-orange">D</div><div class="sec-title">Achieving a Solutions Partner Designation</div><div class="sec-cnt">19 Q&amp;A</div></div>
+      <div class="faq-card">
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">01</span><span class="fq">How do we become a Solutions Partner?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Accumulate a sufficient <strong>Partner Capability Score (PCS)</strong> for your chosen solution area. Max 100 points across 3 categories. Reach at least <strong>70 points total</strong> with no category at 0 pts.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">02</span><span class="fq">What are the "Performance, Skilling, and Customer Success" criteria?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><ul><li><strong>Performance</strong> — Net customer adds (new minus lost, trailing 12 months)</li><li><strong>Skilling</strong> — Intermediate and Advanced Certifications held by your team</li><li><strong>Customer Success</strong> — Usage growth and deployments across customer workloads</li></ul></div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">03</span><span class="fq">What is the Partner Capability Score, and how is it calculated?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Microsoft's 100-point measure of a partner's readiness in each solution area. Calculated <em>automatically</em> from Partner Center data using defined thresholds. Partners must score at least 70 points with activity in all three areas.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">04</span><span class="fq">Do the requirements differ for different solution areas?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">The general structure is consistent, but <strong>specific metrics and qualifying certifications differ by area</strong>. See the Scoring Matrix on the Overview tab for point breakdowns per area.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">05</span><span class="fq">Once I reach 70 points, do I automatically get the Solutions Partner designation?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Once you reach 70 PCS points with non-zero in every required metric, you attain <strong>Qualified status</strong>. Microsoft automatically enrolls your profile — <em>no separate "apply" action required</em>. However, you must meet the same criteria again during the annual renewal window.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">06</span><span class="fq">Do we have to meet all three criteria or can we skip one?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Cannot skip any category.</strong> You need at least some points in each category (every metric must be &gt; 0). You don't need to max out all three.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">07</span><span class="fq">How can we track our Partner Capability Score?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Log into Partner Center → <strong>Membership section</strong>. View enrollment status, qualification status, and metric-level details for each solution area.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">08</span><span class="fq">What is the time frame to achieve a Solutions Partner designation?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Metrics measured on a <strong>rolling 12-month basis</strong>. For new partners, eligibility window includes the current month and the last five months. Most new partners take 6–18 months to achieve their first designation.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">09</span><span class="fq">What are "net customer adds" in the Performance category?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">New customers started working with <em>minus</em> any lost customers (trailing 12 months). For Azure: a customer with at least <strong>$1,000 ACR/month</strong> counts as an add. Customers with ACR below $1,000 for two straight months count against the partner.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">10</span><span class="fq">What counts as customer "Usage Growth"?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Increasing consumption of Microsoft services. For Azure: <strong>ACR growth year-over-year</strong> (minimum $1,000 ACR). For Modern Work: active usage of M365 services. For Business Applications: Dynamics 365 monthly active usage.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">11</span><span class="fq">What are the "deployments" in the Customer Success category?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Specific Azure workloads or M365 features deployed for customers. For Infrastructure: needs <strong>5 unique Azure Service Level 2 workloads</strong> (all Azure services eligible <em>except</em> virtual machines and VM licenses).</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">12</span><span class="fq">Do we have to earn all three Azure designations or just one?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">You can pursue any or all. Each covers different specialties. Some certifications and customer work can contribute to multiple Azure designations. Many cloud partners eventually achieve all three.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">13</span><span class="fq">Can I lose a Solutions Partner designation after achieving it?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Yes.</strong> Valid for one year until your anniversary/renewal date. If your PCS falls below 70 (e.g., certified employees leave or a major customer's usage declines), you won't meet the renewal criteria.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">14</span><span class="fq">If we achieve a designation in one area, does it help with others?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Some overlap exists — certain certifications count toward multiple areas. However, the score itself is separate per area — an 80-point score in Modern Work doesn't give you an Azure designation.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">15</span><span class="fq">Do all partners need to become Solutions Partners?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>No.</strong> You can remain a member without a designation. However, earning a designation gives you a badge, is often a prerequisite for incentive programs and co-sell eligibility, and signals competence to customers.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">16</span><span class="fq">What if our company works primarily with small businesses?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Microsoft has separate <strong>Enterprise vs. SMB tracks</strong> in five of six solution areas. In Modern Work and Security, Microsoft evaluates you on both paths and chooses the highest score.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">17</span><span class="fq">Do I need to report my performance to Microsoft, or is it tracked automatically?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Tracked automatically</strong> as long as you have proper associations (PAL, CPOR, DPOR, CSP) in place. Without associations, points are not recognized.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">18</span><span class="fq">Do we get a certificate or logo when we become a Solutions Partner?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Yes.</strong> Digital badge/logo for each solution area designation earned. Common benefits include GTM services, TP&amp;D advisory hours, and technical support incidents. Download badge graphics from Partner Center.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">19</span><span class="fq">We are a new partner with no prior customers. How should we approach earning a designation?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><ul><li><strong>Focus on Skilling first</strong> — most directly controllable category</li><li>Use Microsoft Learn (free), Partner Training Center, and Partner Skilling Hub</li><li>Plan for initial customer engagements (even small POCs) and use PAL/CPOR from day one</li><li>Set realistic goals: 6–12+ months; use Partner Center dashboard to track what you need</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ CERTIFICATIONS ══════════ -->
+  <div id="tab-certs" class="panel">
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-amber">E</div><div class="sec-title">Certifications &amp; Skilling — Q&amp;A</div><div class="sec-cnt">11 Q&amp;A</div></div>
+      <div class="faq-card">
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--amber)">01</span><span class="fq">Why are Microsoft certifications important in the partner program?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Certifications are directly tied to the <strong>Skilling category</strong> of your PCS. Without certifications, you cannot earn Skilling points, and you need &gt;0 in every category to qualify for a designation.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--amber)">02</span><span class="fq">How do we find out which certifications we need?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">(1) <strong>Partner Center Solutions Partner Dashboard</strong> — live scores, Skilling breakdowns and gaps; (2) <strong>Microsoft Learn Partner Center Documentation</strong> — official metric definitions and certification lists per solution area.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--amber)">03</span><span class="fq">How can our team prepare for certification exams?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><ul><li><strong>Microsoft Learn</strong> — free online learning platform</li><li><strong>Instructor-Led Training</strong> — Microsoft authorized learning partners</li><li><strong>Practice Exams</strong> — from authorized providers</li><li><strong>Microsoft Docs</strong> — exam skills outline on each certification exam's page</li></ul></div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--amber)">04</span><span class="fq">How do we make sure our employees' certifications count toward our partner account?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Each certified individual must be associated with your org in Partner Center (role: <strong>Microsoft AI Cloud Partner Program partner admin</strong>). Employees' MCID must be linked to your Partner Center organization. Verify via the Solutions Partner dashboard.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--amber)">05</span><span class="fq">Do Microsoft certifications expire?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Yes.</strong> Many role-based certifications expire (typically after one year for associate certs). Microsoft provides free renewal assessments online. The partner program counts only <em>active</em> certifications.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--amber)">06</span><span class="fq">What's the difference between "intermediate" and "advanced" certifications in partner scoring?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><ul><li><strong>Intermediate (Associate level)</strong> — Mid-level certifications demonstrating foundational expertise</li><li><strong>Advanced (Expert or Specialty)</strong> — Higher-tier certifications indicating deeper expertise</li></ul>For Infrastructure: 5 employees with qualifying intermediate certs earns 20 points; qualifying advanced certs earn another 20 points.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--amber)">07</span><span class="fq">Do Microsoft Learn "Fundamentals" certifications (like AZ-900) count for partner skilling points?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><ul><li><strong>MS-900 (M365 Fundamentals) DOES count</strong> — eligible intermediate cert for Modern Work</li><li><strong>AZ-900 does NOT count</strong> — not listed for any Azure area</li></ul><strong>Bottom line:</strong> MS-900 specifically counts for Modern Work only.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--amber)">08</span><span class="fq">We have a new employee who passed Microsoft exams – how do we add them?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">1. Add them to Partner Center as a user (Account settings → Users → send invitation)<br>2. Employee logs into Microsoft Learn certification profile → Settings → "Associate to Partner Organization" → enter your Partner ID<br>3. After associating, certifications will be linked (may take a short while).</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--amber)">09</span><span class="fq">If a certified employee leaves the company, do we lose the certification points?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Yes.</strong> If a certified individual leaves and is no longer associated, their certifications will stop counting. Try to have <strong>multiple people</strong> with required certifications.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--amber)">10</span><span class="fq">Do certifications count for multiple solution areas or just one?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Some certifications count toward multiple areas. <strong>Azure Administrator Associate</strong> and <strong>Azure Solutions Architect Expert</strong> are prerequisites across all three Azure designations. Domain-specific certs (e.g., Dynamics 365 Functional Consultant) only count toward Business Applications.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--amber)">11</span><span class="fq">Which certifications count toward Skilling points (by Solution Area)?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">See the full list below in the "Certification Lists by Area" section.</div>
+      </div>
+    </div>
+
+    <!-- Cert lists -->
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-amber">E+</div><div class="sec-title">Certification Lists by Solution Area</div></div>
+      <div class="cert-grid">
+        <div class="cert-card"><div class="cert-head" style="background:#106ebe;">Infrastructure<span class="cert-lvl">Azure</span></div><div><div class="cert-sub" style="background:var(--ms-xlt);color:var(--ms-dk);">Intermediate (Associate)</div><div class="cert-item">Azure Network Engineer Associate</div><div class="cert-item">Windows Server Hybrid Administrator Associate</div><div class="cert-sub" style="background:#fff8e0;color:#7a4500;">Advanced (Specialty)</div><div class="cert-item">Azure Virtual Desktop Specialty</div><div class="cert-item">Azure for SAP Workloads Specialty</div></div></div>
+        <div class="cert-card"><div class="cert-head" style="background:#1064a0;">Digital &amp; App Innovation<span class="cert-lvl">Azure</span></div><div><div class="cert-sub" style="background:var(--ms-xlt);color:var(--ms-dk);">Intermediate (Associate)</div><div class="cert-item">Azure Developer Associate</div><div class="cert-item">Power Platform Developer Associate</div><div class="cert-sub" style="background:#fff8e0;color:#7a4500;">Advanced (Expert)</div><div class="cert-item">DevOps Engineer Expert</div><div class="cert-item">Power Platform Solution Architect Expert</div></div></div>
+        <div class="cert-card"><div class="cert-head" style="background:var(--ms);">Data &amp; AI (Azure)<span class="cert-lvl">Azure</span></div><div><div class="cert-sub" style="background:var(--ms-xlt);color:var(--ms-dk);">Intermediate (Associate/Specialty)</div><div class="cert-item">Azure Database Administrator Associate</div><div class="cert-item">Azure AI Engineer Associate</div><div class="cert-item">Azure Data Scientist Associate</div><div class="cert-item">Power BI Data Analyst Associate</div><div class="cert-item">Azure Cosmos DB Developer Specialty</div><div class="cert-item">Fabric Analytics Engineer Associate</div><div class="cert-item">Fabric Data Engineer Associate</div></div></div>
+        <div class="cert-card"><div class="cert-head" style="background:#d97706;">Modern Work<span class="cert-lvl">M365</span></div><div><div class="cert-sub" style="background:#fffbeb;color:#92400e;">Intermediate (incl. Fundamentals)</div><div class="cert-item">Microsoft 365 Fundamentals (MS-900) ✓</div><div class="cert-item">Teams Administrator Associate</div><div class="cert-item">Identity and Access Administrator Associate</div><div class="cert-item">Collaboration Communications Systems Engineer Associate</div><div class="cert-item">Endpoint Administrator Associate</div><div class="cert-sub" style="background:#fffbeb;color:#92400e;">Advanced (Expert)</div><div class="cert-item">Microsoft 365 Enterprise Administrator Expert</div><div class="cert-item">Teams Meetings and Meeting Rooms Technical Assessment</div></div></div>
+        <div class="cert-card"><div class="cert-head" style="background:var(--red);">Security<span class="cert-lvl">Security</span></div><div><div class="cert-sub" style="background:#fdf2f2;color:var(--red);">Intermediate (Associate/Expert)</div><div class="cert-item">Azure Security Engineer Associate</div><div class="cert-item">Security Operations Analyst</div><div class="cert-item">Cybersecurity Architect Expert</div><div class="cert-item">Identity and Access Administrator</div><div class="cert-item">Information Security Administrator Associate</div></div></div>
+        <div class="cert-card"><div class="cert-head" style="background:var(--purple);">Business Applications<span class="cert-lvl">D365</span></div><div><div class="cert-sub" style="background:#f8f5ff;color:var(--purple);">Intermediate (Associate)</div><div class="cert-item">D365 Finance Functional Consultant Associate</div><div class="cert-item">D365 Finance &amp; Ops Apps Developer Associate</div><div class="cert-item">D365 Supply Chain Management FC Associate</div><div class="cert-item">D365 Customer Service FC Associate</div><div class="cert-item">D365 Field Service FC Associate</div><div class="cert-item">D365 Business Central FC Associate</div><div class="cert-item">Power BI Data Analyst Associate</div><div class="cert-item">Power Platform Functional Consultant Associate</div><div class="cert-item">Power Platform Developer Associate</div><div class="cert-item">Power Automate RPA Developer Associate</div><div class="cert-item">D365 Customer Experience Analyst Associate</div><div class="cert-sub" style="background:#f8f5ff;color:var(--purple);">Advanced (Expert)</div><div class="cert-item">D365 Supply Chain Management FC Expert</div><div class="cert-item">D365 Finance &amp; Ops Apps Solution Architect Expert</div><div class="cert-item">Power Platform Solution Architect Expert</div><div class="cert-item">D365 Business Central Developer Associate</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ ASSOCIATION ══════════ -->
+  <div id="tab-association" class="panel">
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-green">F</div><div class="sec-title">Partner Association (PAL, CPOR, DPOR)</div><div class="sec-cnt">12 Q&amp;A</div></div>
+      <div class="faq-card">
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--green)">01</span><span class="fq">If we do work for a customer, how do we get Microsoft to recognize it?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><ul><li><strong>PAL (Partner Admin Link)</strong> — For Azure plan subscriptions (modern commerce)</li><li><strong>DPOR (Digital Partner of Record)</strong> — For Enterprise Agreement (EA) subscriptions. Does not transfer when customer moves from EA to modern commerce.</li><li><strong>CPOR (Claiming Partner of Record)</strong> — For Microsoft 365 and Dynamics 365 workloads. Customer must approve the association.</li><li><strong>CSP</strong> — When you are the transacting reseller. Automatically tied to your partner ID.</li></ul></div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--green)">02</span><span class="fq">What exactly is Partner Admin Link (PAL)?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">PAL allows a partner's individual (who has access to a customer's Azure environment) to associate their Partner ID with that access. Once established, the customer's ACR and deployments count toward the partner's PCS. Setup requires access via: Guest user, Directory account, Service principal, or Azure Lighthouse.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--green)">03</span><span class="fq">How do we set up PAL in practice?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">1. Partner employee must have RBAC access to customer's Azure subscription<br>2. In Azure Portal → account settings → enter org's Partner ID under "Partner Admin Link"<br>3. Association is recorded in Microsoft's systems<br>4. Verify in Partner Center within the next scoring cycle. Repeat for each team member with Azure access.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--green)">04</span><span class="fq">What is CPOR (Claiming Partner of Record)?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Used for Microsoft 365 and Dynamics 365 workloads. Allows a partner to claim credit for influencing a customer's adoption, even when not the transacting reseller. Eligible for: <strong>Modern Work</strong> (Enterprise + DPOR, SMB + CSP) and <strong>Security</strong> (M365 security workloads). Customer must approve.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--green)">05</span><span class="fq">When should we use CPOR vs. PAL vs. being a reseller?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><ul><li><strong>PAL</strong> — Azure subscriptions under modern commerce when not the reseller</li><li><strong>CPOR</strong> — Microsoft 365 or Dynamics 365 projects where you are not the license seller</li><li><strong>CSP/Reseller</strong> — If you sold the subscription; automatically tied to your partner ID</li><li><strong>DPOR</strong> — Customers on Enterprise Agreements (EA); does NOT transfer when customer moves to modern commerce</li></ul></div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--green)">06</span><span class="fq">We provide services but the customer bought licenses from another partner – can we still get credit?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Yes.</strong> Use the appropriate association method: Azure → PAL; Microsoft 365/Dynamics → CPOR. Microsoft's systems will recognize your influence even though billing went through another partner.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--green)">07</span><span class="fq">Does PAL or CPOR give us extra permissions or access to the customer's environment?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>No.</strong> PAL and CPOR are for recognition and tracking only. PAL does not grant access — you already need access before you can link your ID. CPOR doesn't change any permissions in the customer's tenant.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--green)">08</span><span class="fq">Will customers know if we associate via PAL or CPOR?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">For PAL: customer may not notice unless they look at Azure portal settings. For CPOR: <strong>customer must approve the association</strong> — Microsoft sends them a notification. Always talk to the customer beforehand.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--green)">09</span><span class="fq">What if a customer has multiple partners – who gets the credit?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Multiple associations are possible. For Azure (PAL), multiple partner IDs can be linked to the same subscription via different user accounts. Focus on ensuring your own association is in place.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--green)">10</span><span class="fq">We set up PAL/CPOR but still don't see any points – what could be wrong?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><ul><li><strong>Timing</strong> — PAL attributions may take a billing cycle; CPOR claims also need time after approval</li><li><strong>Incorrect Partner ID</strong> — Use the Associated PartnerID shown on your partner profile</li><li><strong>Scope of association</strong> — For PAL, use subscription-level access for full credit</li><li><strong>Eligible workloads</strong> — For Azure Infrastructure, all services are eligible except virtual machines and VM licenses</li></ul></div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--green)">11</span><span class="fq">We heard about "GDAP" – is that related to partner recognition?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>GDAP (Granular Delegated Admin Privileges)</strong> is about operational access — not recognition. <strong>GDAP = operational access; PAL/CPOR = attribution and recognition.</strong></div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--green)">12</span><span class="fq">Are there tools to track customer deployments or usage for partner metrics?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Partner Center</strong> is your primary tool. The Reports/Insights section shows Azure consumption by customer, CPOR claim statuses, etc. Official metrics only appear once associations are in place.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ BENEFITS ══════════ -->
+  <div id="tab-benefits" class="panel">
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-navy">G</div><div class="sec-title">Partner Benefits — Q&amp;A</div><div class="sec-cnt">7 Q&amp;A</div></div>
+      <div class="faq-card">
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--navy)">01</span><span class="fq">What are "partner benefits" in the program?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Resources and perks Microsoft provides: <strong>Product licenses</strong> for internal use · <strong>Technical support</strong> (advisory hours and support incidents) · <strong>GTM resources</strong> (marketing materials, partner directory listing) · <strong>Training and enablement</strong> (workshops, community access).</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--navy)">02</span><span class="fq">What are partner incentives?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Financial rewards (rebates or payments) for driving sales or usage of Microsoft products. Microsoft's primary incentive vehicle is the <strong>Microsoft Commerce Incentives (MCI)</strong> program.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--navy)">03</span><span class="fq">How are incentives different from benefits?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Benefits</strong> = resources, tools, licenses, support provided as part of your membership. Pre-packaged.<br><strong>Incentives</strong> = cash payouts, rebates earned by performing eligible activities. Based on measured performance.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--navy)">04</span><span class="fq">What is the Microsoft Action Pack?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">The <strong>Microsoft Action Pack Subscription (MAPS)</strong> — an entry-level paid offering providing: internal use licenses (e.g., M365 seats, some Azure credit), a limited number of partner support incidents, and access to training and marketing resources.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--navy)">05</span><span class="fq">What are the new "partner benefits packages"?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Microsoft introduced tiered benefits packages ranging from entry-level (Action Pack equivalent) to more advanced packages for Solutions Partners. Three cost-saving packages are available on the Partner Center page.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--navy)">06</span><span class="fq">Do we get any benefits immediately after joining?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">With just a free membership: Access to Partner Center tools and community · Access to the Training Center · Ability to buy an Action Pack · Eligibility to pursue designations. You won't automatically get internal use licenses or credits for free.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--navy)">07</span><span class="fq">What benefits do we get once we become a Solutions Partner?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Enhanced benefits (2026): <strong>$10,000/year</strong> Azure bulk production credits · 25 Visual Studio Enterprise IDE subscriptions · GitHub Copilot Enterprise $5,000/year · Microsoft Dragon Copilot 20 users · Partner Marketing Center Pro (Unlimited) · 50 partner cloud support incidents · 20 Microsoft Product Support incidents · GTM services · TP&amp;D advisory hours.</div>
+      </div>
+    </div>
+
+    <!-- Feb 2026 update table -->
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-ms">📅</div><div class="sec-title">February 2026 Benefits Update</div></div>
+      <div class="btbl-wrap">
+        <table class="btbl">
+          <thead><tr><th>Benefit</th><th>Bus. Apps 2025</th><th>Bus. Apps 2026</th><th>Modern Work 2025</th><th>Modern Work 2026</th><th>Security 2025</th><th>Security 2026</th></tr></thead>
+          <tbody>
+            <tr><td>Price</td><td>$4,730</td><td class="val">$4,875 ▲</td><td>$4,730</td><td class="val">$4,875 ▲</td><td>$4,730</td><td class="val">$4,875 ▲</td></tr>
+            <tr><td>Azure production credits (yearly)</td><td>—</td><td class="val">$4,000 <span class="new-badge">NEW</span></td><td>—</td><td class="val">$4,000 <span class="new-badge">NEW</span></td><td>$6,000</td><td class="val">$10,000 ▲</td></tr>
+            <tr><td>Microsoft 365 Copilot</td><td>—</td><td class="val">20 ▲</td><td>5</td><td class="val">20 ▲</td><td>—</td><td class="val">5 ▲</td></tr>
+            <tr><td>Teams Premium</td><td>—</td><td>—</td><td>10</td><td class="val">25 ▲</td><td>—</td><td>—</td></tr>
+            <tr><td>Visual Studio Enterprise IDE <span class="new-badge">NEW</span></td><td>—</td><td class="val">25</td><td>—</td><td class="val">25</td><td>—</td><td class="val">25</td></tr>
+            <tr><td>Copilot Studio (monthly credits) <span class="new-badge">NEW</span></td><td>—</td><td class="val">100,000</td><td>—</td><td class="val">25,000</td><td>—</td><td>—</td></tr>
+            <tr><td>Microsoft Dragon Copilot <span class="new-badge">NEW</span></td><td>—</td><td class="val">20</td><td>—</td><td class="val">20</td><td>—</td><td class="val">20</td></tr>
+            <tr><td>Defender Suite <span class="new-badge">NEW</span></td><td>—</td><td class="val">100</td><td>—</td><td class="val">25</td><td>—</td><td class="val">12</td></tr>
+            <tr><td>Partner Marketing Center Pro <span class="new-badge">NEW</span></td><td>—</td><td class="val">Unlimited</td><td>—</td><td class="val">Unlimited</td><td>—</td><td class="val">Unlimited</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="btbl-wrap">
+        <table class="btbl">
+          <thead><tr><th>Benefit</th><th>Data &amp; AI 2025</th><th>Data &amp; AI 2026</th><th>Digital &amp; App Innov. 2025</th><th>Digital &amp; App Innov. 2026</th><th>Infrastructure 2025</th><th>Infrastructure 2026</th></tr></thead>
+          <tbody>
+            <tr><td>Price</td><td>$4,730</td><td class="val">$4,875</td><td>$4,730</td><td class="val">$4,875</td><td>$4,730</td><td class="val">$4,875</td></tr>
+            <tr><td>Azure production credits (yearly)</td><td>$6,000</td><td class="val">$10,000 ▲</td><td>$6,000</td><td class="val">$10,000 ▲</td><td>$6,000</td><td class="val">$10,000 ▲</td></tr>
+            <tr><td>Visual Studio Enterprise IDE <span class="new-badge">NEW</span></td><td>—</td><td class="val">25</td><td>—</td><td class="val">25</td><td>—</td><td class="val">25</td></tr>
+            <tr><td>GitHub Copilot Enterprise <span class="new-badge">NEW</span></td><td>—</td><td class="val">$5,000/yr</td><td>—</td><td class="val">$5,000/yr</td><td>—</td><td class="val">$5,000/yr</td></tr>
+            <tr><td>Microsoft Dragon Copilot <span class="new-badge">NEW</span></td><td>—</td><td class="val">20</td><td>—</td><td class="val">20</td><td>—</td><td class="val">20</td></tr>
+            <tr><td>Defender Suite <span class="new-badge">NEW</span></td><td>—</td><td class="val">100</td><td>—</td><td class="val">100</td><td>—</td><td class="val">100</td></tr>
+            <tr><td>Partner Marketing Center Pro <span class="new-badge">NEW</span></td><td>—</td><td class="val">Unlimited</td><td>—</td><td class="val">Unlimited</td><td>—</td><td class="val">Unlimited</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ SPECIALIZATIONS & INCENTIVES ══════════ -->
+  <div id="tab-specializations" class="panel">
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-orange">H</div><div class="sec-title">Specializations</div><div class="sec-cnt">10 Q&amp;A</div></div>
+      <div class="faq-card">
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">01</span><span class="fq">What is the difference between a Solutions Partner designation and a Specialization?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">A <strong>designation</strong> is the foundational achievement in a broad solution area. A <strong>Specialization</strong> is a step above — demonstrating deep, specific expertise in a narrower domain. Prerequisite: must already hold the relevant Solutions Partner designation. No separate cost. Many specializations require passing an audit.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">02</span><span class="fq">How many specializations does Microsoft offer?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Azure (13+):</strong> AI Platform, Analytics, AI Apps, Data Warehouse Migration, Agentic DevOps, Hybrid Cloud HCI, Infra and Database Migration, Kubernetes, Azure Virtual Desktop, VMware Solution, Migrate Enterprise Applications, Networking Services, SAP on Azure.<br><strong>Business Applications (8):</strong> Business Intelligence, Finance, Intelligent Automation, Low Code App Dev, Sales, Service, SMB Management, Supply Chain.<br><strong>Modern Work (7):</strong> Adoption &amp; Change Management, Calling for Teams, Custom Solutions for Teams, Meetings &amp; Meeting Rooms, Modernize Endpoints, Teamwork Deployment, Copilot.<br><strong>Security (5):</strong> Cloud Security, Identity &amp; Access Management, Data Security, Threat Protection, Copilot.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">03</span><span class="fq">What are the requirements to achieve a Specialization?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">For <strong>Azure specializations</strong>: must meet qualification requirements (aligned Solutions Partner designation, Performance and Skilling requirements), then schedule and pass the audit. For <strong>Modern Work and Security</strong>: different enrollment path.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">04</span><span class="fq">How do we prepare for a specialization audit?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><ul><li>Review the requirements document in detail (Partner Center Specializations FAQ)</li><li>Organize documentation: architecture diagrams, project scopes, customer attestations</li><li>Perform a self-assessment or dry run</li><li>Ensure your team is ready — auditors might interview technical team members</li></ul></div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">05</span><span class="fq">Do specializations require an on-site audit or is it remote?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">In most cases, <strong>audits are done remotely</strong> by third-party auditors — they schedule calls to review documentation and ask questions. You typically upload documentation to a secure portal, followed by interviews.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">06</span><span class="fq">How long does a Specialization last?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Generally valid for <strong>one year</strong>. You must keep your base Solutions Partner designation active — losing the underlying designation means losing the specialization.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">07</span><span class="fq">What is the Azure Expert MSP program?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">The <strong>Azure Expert Managed Service Provider (MSP)</strong> program is a top-tier distinction for partners providing end-to-end Azure managed services. Requires an intensive audit covering people, processes, and Azure managed service capabilities. Only a small number of partners globally hold this status.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">08</span><span class="fq">Are specializations mandatory?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Completely optional.</strong> Not required to be a Microsoft partner and not required for most incentive programs. They are an added mark of distinction.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">09</span><span class="fq">Do we have to pay for a specialization?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>No separate fee</strong> is required for specializations if you're enrolled in the Solution Partner designation program. However, you must maintain your underlying Solutions Partner benefits package subscription.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--orange)">10</span><span class="fq">Will Microsoft provide a badge for specializations?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Yes.</strong> Microsoft provides a digital Specialization badge/logo as an add-on to your Solutions Partner badge. Your partner profile will display both the Solutions Partner designation and the specialization credential.</div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-lime">I</div><div class="sec-title">Incentives &amp; Rewards</div><div class="sec-cnt">6 Q&amp;A</div></div>
+      <div class="faq-card">
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--lime)">01</span><span class="fq">How do we become eligible for Microsoft partner incentives?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">1. Achieve a Solutions Partner designation (at least one) as a baseline requirement<br>2. Enroll in and sign the incentives agreement in Partner Center<br>3. Meet specific program requirements for each incentive area. Microsoft's <strong>Microsoft Commerce Incentives (MCI)</strong> program covers claiming scenarios and proof of execution (POE) guidelines.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--lime)">02</span><span class="fq">What types of incentives can partners expect?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><ul><li><strong>Azure consumption incentives</strong> — based on ACR driven through PAL or CSP</li><li><strong>Modern Work incentives</strong> — based on selling or influencing M365 seats and active usage</li><li><strong>Business Applications incentives</strong> — for selling and driving adoption of Dynamics 365 and Power Platform</li><li><strong>Program-specific funding</strong> — ECIF, AMP, and PIE increasingly tied to Advanced Specializations</li></ul></div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--lime)">03</span><span class="fq">How are incentives paid out?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Incentives are typically paid out <strong>quarterly or monthly</strong> depending on the program. You must set up payment and tax details in Partner Center.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--lime)">04</span><span class="fq">We are not transacting any deals (not selling directly). Can we still earn incentives?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Yes, in many cases.</strong> For Azure, if you have a PAL association and drive usage up, you may qualify for influence incentives. The key is having the corresponding Solutions Partner designation and enrolling in the incentives program.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--lime)">05</span><span class="fq">Are there any incentives for referring customers if we don't do the work ourselves?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">The partner program has <strong>largely moved away from pure referral fees</strong>. The old "Advisor" model has been retired. Current incentive models encourage partners to be involved in implementation/adoption (using CPOR/PAL) or to resell via CSP.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--lime)">06</span><span class="fq">What's the difference between being a partner in MCPP vs being a distributor or LSP?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">A <strong>Distributor (Indirect Provider)</strong> wholesales Microsoft products to other partners — very different track, high requirements. An <strong>LSP</strong> sells volume licenses under enterprise agreements. Unless your model is recruiting other resellers, you are likely a standard partner or CSP reseller.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ GTM & PARTNER CENTER ══════════ -->
+  <div id="tab-gtm" class="panel">
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-purple">J</div><div class="sec-title">Co-sell, Marketplace &amp; GTM</div><div class="sec-cnt">12 Q&amp;A</div></div>
+      <div class="faq-card">
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">01</span><span class="fq">What does "co-selling with Microsoft" mean?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Collaborating with Microsoft's sales teams (or other partners) to sell solutions to customers. Forms: <strong>Microsoft field-led</strong> (a Microsoft salesperson brings you in) · <strong>Partner-led</strong> (you have a solution Microsoft promotes) · <strong>Partner-to-partner</strong> (two partners team up).</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">02</span><span class="fq">What is the Microsoft commercial marketplace?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><ul><li><strong>Azure Marketplace</strong> — IT solutions (Azure VM solutions, SaaS apps, developer and data services)</li><li><strong>Microsoft AppSource</strong> — Business users (Dynamics 365 add-ons, Power BI visuals, SaaS, consulting services)</li><li>Listing is free; transactable offers incur a standard marketplace transaction fee</li></ul></div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">03</span><span class="fq">How do we list our solution or service on the marketplace?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">In Partner Center, go to the Marketplace section → create a Publisher profile → create a New Offer → provide descriptions, pricing, and other details. Microsoft reviews the offer before it goes live. Start with a simple "Contact me" listing if you just want lead generation.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">04</span><span class="fq">What go-to-market (GTM) support does Microsoft provide?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><ul><li><strong>Partner Marketing Center</strong> — ready-made marketing materials, campaign content, AI-powered customization</li><li><strong>Solutions Partner listing</strong> — customers find you via Microsoft partner directory, filtered by designations and specializations</li><li>Co-branded materials and logo usage guidelines</li><li>Events and webinars where partners can be featured</li></ul></div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">05</span><span class="fq">What is the Microsoft partner directory and how do we appear in it?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Microsoft maintains a <strong>Partner Finder</strong> where customers search for partners by expertise and location. Ensure your business profile in Partner Center is complete. Solutions Partner designations and specializations automatically display on your profile and influence search rankings.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">06</span><span class="fq">What is the Microsoft Partner Community?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">An online forum (microsoftpartnercommunity.com) where partners ask questions, share experiences, and get updates from Microsoft and other partners. Free, available to all partners.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">07</span><span class="fq">What support can we expect as a new partner?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Partner Center Support (file support tickets) · Technical Pre-sales &amp; Deployment (TP&amp;D) advisory hours · Partner Support Communities · Microsoft Learn (free learning paths) · MCAPS Start for Partners resource portal.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">08</span><span class="fq">Can we use the old "Gold Partner" logo?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>No.</strong> The old Gold and Silver logos are no longer valid. Partners lost associated badging in <strong>October 2022</strong>. Use only the current Solutions Partner badges.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">09</span><span class="fq">We thought we'd automatically get leads and incentives when we joined – is that true?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>No.</strong> Simply joining the program does not guarantee leads or payments. Leads come from marketing efforts, co-sell programs, and the partner directory. Incentives require achieving at least one Solutions Partner designation, enrolling in an incentives program, and performing qualifying activities.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">10</span><span class="fq">We have lots of certifications but no customer activity – will we still get a designation?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Unlikely.</strong> You need at least some points in every category. Even if you max out Skilling, you still need some new customers (Performance) and some deployments/usage (Customer Success) to reach the 70-point threshold.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">11</span><span class="fq">Our customer moved from an Enterprise Agreement to an Azure plan – does our partner association carry over?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>No.</strong> DPOR status does not move with them. The partner ID is not transferred. You need to set up PAL for the new subscription.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--purple)">12</span><span class="fq">What if we can't reach 70 points – are there any benefits for partners below the threshold?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">You can still purchase an <strong>Action Pack</strong> for basic benefits regardless of your score. Some general partner resources are available to all enrolled partners. However, designation-level benefits require meeting the 70-point threshold.</div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-teal">K</div><div class="sec-title">Partner Center Basics</div><div class="sec-cnt">8 Q&amp;A</div></div>
+      <div class="faq-card">
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--teal)">01</span><span class="fq">How do I access Partner Center?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Go to <strong>partner.microsoft.com</strong> and click on Partner Center. Sign in with the Microsoft account associated with your partner enrollment.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--teal)">02</span><span class="fq">What roles exist in Partner Center and who can do what?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>Microsoft AI Cloud Partner Program partner admin</strong> — manages partner capability scores and membership activities. <strong>Account admin</strong> — linking partner IDs via PAL/DPOR. Other roles exist for billing, referrals, incentives management, etc.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--teal)">03</span><span class="fq">Where in Partner Center can I see our partner capability score?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Navigate to the <strong>Membership section</strong>. You'll find enrollment status, qualification status, and metric-level details for each solution area you're tracking.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--teal)">04</span><span class="fq">Where do I manage partner associations (PAL, CPOR)?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa"><strong>PAL</strong> is set up in the <strong>Azure Portal</strong> (not Partner Center) → "Link to a partner ID" page. <strong>CPOR claims</strong> are managed in Partner Center under the Incentives or Associations section.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--teal)">05</span><span class="fq">Where do I see our benefits and download software?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">In Partner Center, navigate to the <strong>Benefits section</strong>. There you can find and activate product licenses, download software, manage Azure credits, and access support incidents.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--teal)">06</span><span class="fq">What if I have technical issues with Partner Center?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">Use the <strong>Support section</strong> within Partner Center to file a support request. Check Partner Center guidance on Microsoft Learn. Microsoft has regional support centers for partners.</div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--teal)">07</span><span class="fq">How do I add or remove users from my Partner Center account?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">An admin manages users under <strong>Account settings</strong> in Partner Center. To add users: send an invitation via their email. To remove users: find them in the user list and disable or remove their access. <em>Note: removing a certified user means their certifications stop counting toward your Skilling points.</em></div>
+        <div class="fr" onclick="tog(this)"><span class="fi" style="color:var(--teal)">08</span><span class="fq">How do I update my company profile in the partner directory?</span><svg class="fch" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
+        <div class="fa">In Partner Center, go to <strong>Account settings → Business profile</strong> and update your company description, industries, solutions, location, and contact information.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ DEEP DIVES ══════════ -->
+  <div id="tab-deepdive" class="panel">
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-ms">⚙</div><div class="sec-title">Infrastructure (Azure) — Scoring Deep Dive</div></div>
+      <div class="notice">Slides 16, 22–24. ENT &amp; SMB paths, step-by-step scoring for all 5 metrics.</div>
+      <div class="sd-grid">
+        <div class="sd-card"><div class="sd-head" style="background:#106ebe;">⚡ Net Customer Adds<span class="sd-pts">Max 30 pts</span></div><div class="sd-elig"><span class="tag ent">ENT</span>≥ $1,000 ACR in one of last 2 months · <span class="tag smb">SMB</span>≥ $500 ACR</div><div class="sd-body"><div class="sd-row"><strong>Formula:</strong> Eligible customers last month − Eligible customers same month last year</div><div class="sd-row"><strong>Points:</strong> 10 pts per net-new Azure customer · Max 30 pts (3 customers)</div><div class="sd-row"><strong>Associations:</strong> CSP (Tier 1/2), DPOR, or PAL</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:var(--amber);">🎓 Intermediate Certs<span class="sd-pts">Max 20 pts</span></div><div class="sd-elig">Azure Network Engineer Associate · Windows Server Hybrid Administrator Associate</div><div class="sd-body"><div class="sd-row"><span class="tag ent">ENT</span>Prereq: 2× Azure Admin Associate (0 pts) · Then 5 unique individuals → 4 pts each = 20 pts</div><div class="sd-row"><span class="tag smb">SMB</span>Prereq: 1× Azure Admin Associate (4 pts) · Then 4 unique individuals → 4 pts each = 16 pts</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:#8a6000;">🏆 Advanced Certs<span class="sd-pts">Max 20 pts</span></div><div class="sd-elig">Azure Virtual Desktop Specialty · Azure for SAP Workloads Specialty</div><div class="sd-body"><div class="sd-row"><span class="tag ent">ENT</span>Prereq: 2× Azure Solutions Architect Expert (0 pts) · Then 5 unique individuals → 4 pts each = 20 pts</div><div class="sd-row"><span class="tag smb">SMB</span>Prereq: 1× Azure Solutions Architect Expert (4 pts) · Then 4 unique individuals → 4 pts each = 16 pts</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:var(--green);">📈 Usage Growth<span class="sd-pts">Max 20 pts</span></div><div class="sd-elig">All Azure Service Level 2 services eligible · ENT &amp; SMB tracks</div><div class="sd-body"><div class="sd-row"><strong>1 point per 1% ACR growth year-over-year</strong></div><div class="formula">(ACR last month − ACR same month last year) / ACR same month last year × 100</div><div class="sd-row"><strong>Minimum:</strong> Total ACR must be ≥ USD 1,000</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:var(--orange);">🚀 Deployments<span class="sd-pts">Max 10 pts</span></div><div class="sd-elig">All Azure SL2 services eligible · ❌ Virtual Machines &amp; VM licenses excluded</div><div class="sd-body"><div class="sd-row"><strong>2 points per distinct Azure Service Level-2 workload</strong> · Max 10 pts (5 services)</div><div class="sd-row">ACR &gt; 0 in the last 12 months required · Rolling 12-month window</div></div></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-dk">💡</div><div class="sec-title">Digital &amp; App Innovation — Scoring Deep Dive</div></div>
+      <div class="notice">Slides 17, 25–27. Same structure as Infrastructure but with different qualifying certifications.</div>
+      <div class="sd-grid">
+        <div class="sd-card"><div class="sd-head" style="background:#106ebe;">⚡ Net Customer Adds<span class="sd-pts">Max 30 pts</span></div><div class="sd-elig"><span class="tag ent">ENT</span>≥ $1,000 ACR · <span class="tag smb">SMB</span>≥ $500 ACR</div><div class="sd-body"><div class="sd-row">10 pts per net-new Azure customer · Max 30 pts (3 customers)</div><div class="sd-row">One customer tenant can contribute to Infrastructure, Data &amp; AI, and D&amp;AI simultaneously</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:var(--amber);">🎓 Intermediate Certs<span class="sd-pts">Max 20 pts</span></div><div class="sd-elig">Azure Developer Associate · Power Platform Developer Associate</div><div class="sd-body"><div class="sd-row"><span class="tag ent">ENT</span>Prereq: 2× Azure Admin Associate (0 pts) · Then 5 unique individuals → 4 pts each = 20 pts</div><div class="sd-row"><span class="tag smb">SMB</span>Prereq: 1× Azure Admin Associate (4 pts) · Then 4 unique individuals → 4 pts each = 16 pts</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:#8a6000;">🏆 Advanced Certs<span class="sd-pts">Max 20 pts</span></div><div class="sd-elig">DevOps Engineer Expert · Power Platform Solution Architect Expert</div><div class="sd-body"><div class="sd-row"><span class="tag ent">ENT</span>Prereq: 2× Azure Solutions Architect Expert (0 pts) · Then 5 unique individuals → 4 pts each = 20 pts</div><div class="sd-row"><span class="tag smb">SMB</span>Prereq: 1× Azure Solutions Architect Expert (4 pts) · Then 4 unique individuals → 4 pts each = 16 pts</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:var(--green);">📈 Usage Growth<span class="sd-pts">Max 20 pts</span></div><div class="sd-elig">All Azure Service Level 2 services · ENT &amp; SMB tracks</div><div class="sd-body"><div class="sd-row">1 point per 1% ACR growth YoY · Maximum 20 pts · Minimum ACR ≥ USD 1,000</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:var(--orange);">🚀 Deployments<span class="sd-pts">Max 10 pts</span></div><div class="sd-elig">All Azure SL2 services · ❌ Virtual Machines &amp; VM licenses excluded</div><div class="sd-body"><div class="sd-row">2 points per distinct Azure SL2 workload · Max 10 pts (5 services) · Rolling 12-month window</div></div></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-ms">🧠</div><div class="sec-title">Data &amp; AI (Azure) — Scoring Deep Dive</div></div>
+      <div class="notice">Slides 18, 28–30. Data &amp; AI has a unique 3-step skilling model — all skilling is under Intermediate (max 40 pts, no Advanced Certs category).</div>
+      <div class="sd-grid">
+        <div class="sd-card"><div class="sd-head" style="background:#106ebe;">⚡ Net Customer Adds<span class="sd-pts">Max 20 pts</span></div><div class="sd-elig"><span class="tag ent">ENT</span>Cust ACR ≥ $600 in last 12 months</div><div class="sd-body"><div class="sd-row">10 pts per net-new Azure customer · Max 20 pts</div><div class="sd-row">Associations: CSP (Tier 1/2), DPOR, or PAL</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:var(--amber);">🎓 Intermediate Certs (3-step)<span class="sd-pts">Max 40 pts</span></div><div class="sd-elig">Azure DB Admin · Azure AI Engineer · Data Scientist · Power BI · Cosmos DB · Fabric Analytics · Fabric Data Engineer</div><div class="sd-body"><div class="sd-row"><span class="tag ent">ENT</span>Step 1: 2× Azure Admin Associate (0 pts) · Step 2: 2× Azure Solutions Architect Expert (0 pts) · Step 3: 10 unique individuals → 4 pts each = 40 pts</div><div class="sd-row"><span class="tag smb">SMB</span>Step 1: 1× Azure Admin Associate (4 pts) · Step 2: 1× Azure Solutions Architect Expert (4 pts) · Step 3: 8 unique individuals → 4 pts each = 32 pts</div><div class="sd-row" style="color:var(--orange);font-weight:600;">⚠ No Advanced Certs category — all skilling points come from Intermediate Certs (max 40)</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:var(--green);">📈 Usage Growth<span class="sd-pts">Max 20 pts</span></div><div class="sd-elig">All Azure Service Level 2 services · ENT &amp; SMB tracks</div><div class="sd-body"><div class="sd-row">1 point per 1% ACR growth YoY · Maximum 20 pts · Minimum ACR ≥ USD 1,000</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:var(--orange);">🚀 Deployments<span class="sd-pts">Max 10 pts</span></div><div class="sd-elig">All Azure SL2 services · ❌ Virtual Machines &amp; VM licenses excluded</div><div class="sd-body"><div class="sd-row">2 points per distinct Azure SL2 workload · Max 10 pts (5 services) · Rolling 12-month window</div></div></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-purple">📊</div><div class="sec-title">Business Applications — Scoring Deep Dive</div></div>
+      <div class="notice">Slides 19, 31–33. Business Applications uses workload-based scoring (not tenant-based) and Monthly Consumption Value (MCV) for Usage Growth.</div>
+      <div class="sd-grid">
+        <div class="sd-card"><div class="sd-head" style="background:var(--purple);">⚡ Net Customer Adds<span class="sd-pts">Max 15 pts</span></div><div class="sd-elig"><span class="tag ent">ENT</span>5+ workloads with &gt;$5,000 revenue · <span class="tag smb">SMB</span>4 or fewer workloads</div><div class="sd-body"><div class="sd-row"><strong>Workload-based, not just tenant-based.</strong></div><div class="sd-row"><span class="tag ent">ENT</span>3 pts/NCA · Each unique workload must have ≥ $1,500 revenue/month → achieve 5 qualifying net customer adds</div><div class="sd-row"><span class="tag smb">SMB</span>Each unique workload must have ≥ $250 revenue/month</div><div class="sd-row">Associations: CPOR or CSP (Tier 1 or 2)</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:#7158b5;">🎓 Intermediate Certs<span class="sd-pts">Max 20 pts</span></div><div class="sd-elig">D365 FC Associates, Power Platform certs, Power BI — see Certifications tab for full list</div><div class="sd-body"><div class="sd-row"><span class="tag ent">ENT</span>1 pt per individual → need 20 unique individuals each passing one Intermediate Cert</div><div class="sd-row"><span class="tag smb">SMB</span>4 pts per individual → need 5 unique individuals each passing one Intermediate Cert</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:var(--green);">📈 Usage Growth (MCV-based)<span class="sd-pts">Max 30 pts</span></div><div class="sd-elig"><span class="tag ent">ENT</span>Baseline MCV ≥ 50,000 last year · <span class="tag smb">SMB</span>Baseline MCV ≥ 25,000 last year</div><div class="sd-body"><div class="sd-row"><strong>MCV = Sum of Workloads [(Monthly Active Users or Capacity) × Rate]</strong></div><div class="sd-row">1 pt per 1% growth · Max 30 pts. DPOR and CPOR scored separately; higher score used.</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:var(--orange);">🚀 Deployments<span class="sd-pts">Max 20 pts</span></div><div class="sd-elig"><span class="tag ent">ENT</span>Unique workloads with MCV ≥ 10,000 · <span class="tag smb">SMB</span>Unique workloads with MCV ≥ 5,000</div><div class="sd-body"><div class="sd-row">1 pt per deployment · DPOR and CPOR scored separately; higher score used · Rolling 12-month basis</div></div></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-orange">💼</div><div class="sec-title">Modern Work — Scoring Deep Dive</div></div>
+      <div class="notice">Slides 20, 34–36. Modern Work scores on BOTH ENT and SMB tracks simultaneously; Microsoft uses the higher score.</div>
+      <div class="sd-grid">
+        <div class="sd-card"><div class="sd-head" style="background:#d97706;">⚡ Net Customer Adds<span class="sd-pts">Max 20 pts</span></div><div class="sd-elig"><span class="tag ent">ENT</span>≥ 1 workload with paid license &gt; 300 · <span class="tag smb">SMB</span>1 workload with paid license 11–300</div><div class="sd-body"><div class="sd-row">4 pts per customer · Need 5 qualifying net customer adds = Max 20 pts (both tracks)</div><div class="sd-row">Microsoft evaluates BOTH tracks and uses the higher score automatically</div><div class="sd-row">Associations: <span class="tag ent">ENT</span> CPOR or DPOR · <span class="tag smb">SMB</span> CPOR or CSP Tier 1/2</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:var(--green);">📈 Usage Growth<span class="sd-pts">Max 30 pts</span></div><div class="sd-elig">Exchange Online, Intune, M365 Copilot, M365 Apps, Entra ID P1, SharePoint Online, Teams, and more</div><div class="sd-body"><div class="sd-row"><span class="tag ent">ENT</span>CPOR threshold: 1,000 UG = 30 pts · DPOR threshold: 4,000 UG = 30 pts</div><div class="sd-row"><span class="tag smb">SMB</span>CPOR threshold: 500 MAU = 30 pts · CSP threshold: 2,000 MAU = 30 pts</div><div class="sd-row">Microsoft uses the <strong>higher of CPOR or DPOR/CSP score</strong></div><div class="sd-row" style="font-size:.7rem;color:var(--g400);">Example (ENT): 1,500 CPOR = 30 pts (capped). 2,000 DPOR = 15 pts. Higher = CPOR: 30 pts.</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:var(--orange);">🚀 Deployments<span class="sd-pts">Max 25 pts</span></div><div class="sd-elig">Workloads with ≥ 40% monthly active usage. Cannot combine CPOR and DPOR points.</div><div class="sd-body"><div class="sd-row">CPOR: 5 pts per net new deployment · Need 5 = 25 pts</div><div class="sd-row">DPOR: 2.5 pts per net new deployment · Need 10 = 25 pts</div><div class="sd-row">Microsoft uses the higher of the two scores</div></div></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-red">🛡</div><div class="sec-title">Security — Scoring Deep Dive</div></div>
+      <div class="notice">Slides 21, 37–39. Security has ONE combined Skilling metric (no Intermediate/Advanced split), mandatory prerequisites, and scores on both Azure and M365 security workloads.</div>
+      <div class="sd-grid">
+        <div class="sd-card"><div class="sd-head" style="background:var(--red);">⚡ Net Customer Adds<span class="sd-pts">Max 20 pts (both tracks)</span></div><div class="sd-elig"><span class="tag ent">ENT</span>Azure ACR ≥ $600 OR M365 workload &gt; 300 licenses · <span class="tag smb">SMB</span>Azure ACR ≥ $600 OR M365 5–300 licenses</div><div class="sd-body"><div class="sd-row"><span class="tag ent">ENT</span>2 pts per NCA · Need 10 qualifying net customer adds = Max 20 pts</div><div class="sd-row"><span class="tag smb">SMB</span>4 pts per NCA · Need 5 qualifying net customer adds = Max 20 pts</div><div class="sd-row">Microsoft evaluates BOTH tracks and uses the higher score automatically</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:#7a1a1a;">🎓 Skilling (Combined Metric)<span class="sd-pts">Max 40 pts</span></div><div class="sd-elig">Azure Security Engineer Associate · Security Operations Analyst · Cybersecurity Architect Expert · Identity and Access Administrator · Information Security Administrator Associate</div><div class="sd-body"><div class="sd-row" style="color:var(--red);font-weight:600;">⚠ Security has ONE combined Skilling metric — no separate Intermediate/Advanced split</div><div class="sd-row"><span class="tag ent">ENT</span>Step 1: 2× Azure Security Engineer Associate (0 pts — mandatory prerequisite)<br>Step 2: 2× Microsoft Security Operations Analyst (0 pts — mandatory prerequisite)<br>Step 3: 6.67 pts per certified person = Max 40 pts</div><div class="sd-row"><span class="tag smb">SMB</span>Step 1: 1× Azure Security Engineer Associate (0 pts) · Step 2: 1× Security Operations Analyst (0 pts) · Step 3: 8 pts per person = Max 40 pts</div><div class="sd-row" style="color:var(--red);">If EITHER prerequisite is missing, Skilling score = 0</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:var(--green);">📈 Usage Growth<span class="sd-pts">Max 20 pts</span></div><div class="sd-elig">Azure Security ACR growth + M365 Protected Users growth</div><div class="sd-body"><div class="sd-row">Azure: 1 pt per 1,250 ACR growth · M365: 1 pt per 125 protected users growth · Max 20 pts combined</div></div></div>
+        <div class="sd-card"><div class="sd-head" style="background:var(--orange);">🚀 Deployments<span class="sd-pts">Max 20 pts</span></div><div class="sd-elig">Azure + M365 deployments with minimum thresholds</div><div class="sd-body"><div class="sd-row">Each net new customer ≈ 3.3 pts · Need 6 deployments = Max 20 pts · Rolling eligibility window</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ JOURNEY & MISTAKES ══════════ -->
+  <div id="tab-journey" class="panel">
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-red">L</div><div class="sec-title">The Full Partner Journey — Stage by Stage</div></div>
+      <div class="step-grid">
+        <div class="step-card"><div class="step-n" style="background:var(--ms);">A</div><div><div class="step-title">Enroll</div><div class="step-body">Create a free Partner Center account, verify business, accept Partner Agreement.</div><div class="step-out">✓ Official Microsoft partner member with Partner ID</div></div></div>
+        <div class="step-card"><div class="step-n" style="background:var(--amber);">B</div><div><div class="step-title">Build Skills</div><div class="step-body">Get team certified, explore Microsoft Learn, consider Action Pack.</div><div class="step-out">✓ Skilling points accumulated; team becomes delivery-ready</div></div></div>
+        <div class="step-card"><div class="step-n" style="background:var(--green);">C</div><div><div class="step-title">Win Customers</div><div class="step-body">Deploy solutions, set up PAL/CPOR, grow usage.</div><div class="step-out">✓ Points accumulated for Performance and Customer Success</div></div></div>
+        <div class="step-card"><div class="step-n" style="background:var(--ms-dk);">D</div><div><div class="step-title">Achieve Designation</div><div class="step-body">Reach 70+ points (with &gt;0 in each metric), purchase/enroll.</div><div class="step-out">✓ Solutions Partner badge, enhanced benefits, incentive eligibility</div></div></div>
+        <div class="step-card"><div class="step-n" style="background:var(--teal);">E</div><div><div class="step-title">Grow &amp; Maintain</div><div class="step-body">Add designations, renew annually, expand to new solution areas.</div><div class="step-out">✓ Multiple designations and stronger market position</div></div></div>
+        <div class="step-card"><div class="step-n" style="background:var(--purple);">F</div><div><div class="step-title">Specialization</div><div class="step-body">Meet specialization requirements and pass the audit.</div><div class="step-out">✓ Specialization badge + deeper differentiation</div></div></div>
+      </div>
+      <div class="icard" style="margin-top:.85rem;font-size:.77rem;color:var(--g600);line-height:1.65;">
+        <strong style="color:var(--g800);">Typical timelines:</strong> Enrollment: days to a couple of weeks · Building skills: weeks to months · Winning customers &amp; gathering points: 6–12+ months · First designation: often 6–18 months from enrollment · Specialization: months after designation. <em>No hard deadlines. Key is sustained progress across all three scoring categories.</em>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-amber">M</div><div class="sec-title">Common Mistakes &amp; Misunderstandings</div></div>
+      <div class="mk-list">
+        <div class="mk"><div class="mk-n">1</div><div class="mk-txt"><strong>Not setting up partner associations (PAL/CPOR).</strong> The most costly mistake. Without associations, partner capability score points are not recognized. Every customer engagement must be linked to your Partner ID.</div></div>
+        <div class="mk"><div class="mk-n">2</div><div class="mk-txt"><strong>Confusing benefits with incentives.</strong> Benefits are resources provided as part of your membership. Incentives are cash payouts earned through performance. New partners sometimes assume they'll receive cash payments just by joining.</div></div>
+        <div class="mk"><div class="mk-n">3</div><div class="mk-txt"><strong>Assuming designation happens automatically upon hitting 70 points.</strong> For new partners not previously enrolled, you may need to actively purchase the Solutions Partner designation on the Membership offers page once you qualify.</div></div>
+        <div class="mk"><div class="mk-n">4</div><div class="mk-txt"><strong>Relying on a single certified employee.</strong> If that person leaves, you lose Skilling points. Microsoft's scoring requires multiple distinct individuals with certifications.</div></div>
+        <div class="mk"><div class="mk-n">5</div><div class="mk-txt"><strong>Not renewing certifications.</strong> Expired certifications stop counting. Your Skilling score can drop suddenly if renewals are missed.</div></div>
+        <div class="mk"><div class="mk-n">6</div><div class="mk-txt"><strong>Using the wrong Partner ID for PAL.</strong> Microsoft specifies using the Associated PartnerID value shown on your partner profile. Using a different ID (global account vs. location account) can cause attribution issues.</div></div>
+        <div class="mk"><div class="mk-n">7</div><div class="mk-txt"><strong>Assuming DPOR transfers when a customer migrates from EA to Azure plan.</strong> The partner ID is not transferred. You need to set up PAL for the new subscription.</div></div>
+        <div class="mk"><div class="mk-n">8</div><div class="mk-txt"><strong>Thinking Gold/Silver competencies still exist.</strong> No more legacy competency renewals have been processed since October 2022.</div></div>
+        <div class="mk"><div class="mk-n">9</div><div class="mk-txt"><strong>Not completing the business verification during enrollment.</strong> Microsoft will verify email ownership, employment, and other details — you must follow time-sensitive instructions.</div></div>
+        <div class="mk"><div class="mk-n">10</div><div class="mk-txt"><strong>Ignoring the SMB path.</strong> Partners serving small businesses may qualify via the SMB track with lower thresholds but may not realize this option exists.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ RESOURCES ══════════ -->
+  <div id="tab-resources" class="panel">
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-green">🔗</div><div class="sec-title">How to Perform Partner Admin Link (PAL)</div></div>
+      <div class="notice">Go to your customer's Azure Tenant. Login using an account that has been granted the Contributor role by the customer for your project deployment/services work.</div>
+      <div class="pal-steps">
+        <div class="pal-step"><div class="pal-n">1</div><div class="pal-txt"><strong>Sign in to the Azure portal</strong> at portal.azure.com using the account the customer has granted you access to (must have Contributor role or higher).</div></div>
+        <div class="pal-step"><div class="pal-n">2</div><div class="pal-txt"><strong>Go to the "Link to a partner ID" page</strong> in the Azure portal. You can search for it in the top search bar.</div></div>
+        <div class="pal-step"><div class="pal-n">3</div><div class="pal-txt"><strong>Enter the Microsoft partner ID.</strong> Be sure to use the <strong>Associated PartnerID</strong> value shown on your partner profile (formerly called the Partner Location Account MPN ID).</div></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-dk">🔧</div><div class="sec-title">Technical Presales and Deployment (TPD) Services</div></div>
+      <div class="btbl-wrap">
+        <table class="btbl">
+          <thead><tr><th>Offer Type</th><th>Advisory Hours</th><th>Technical Presales</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Solutions Partner designation</strong></td><td class="val">50 hours</td><td class="val">Unlimited</td></tr>
+            <tr><td>Partner Success Expanded Benefits</td><td class="val">10 hours</td><td class="val">Unlimited</td></tr>
+            <tr><td>Partner Success Core Benefits</td><td class="val">5 hours</td><td>Deducts advisory hours</td></tr>
+            <tr><td>Partner Launch Benefits</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid2">
+        <div class="icard"><h4>✅ Supported by TPD</h4><ul><li>Demo and proof-of-concept resources and guidance</li><li>Technical licensing Q&amp;A</li><li>Manage customer objections</li><li>Implementation guidance</li><li>Review design and guide modification</li><li>Broaden your footprint with existing customers</li><li>Help develop application and automation using Partner Center SDK and API</li></ul></div>
+        <div class="icard"><h4>❌ Not Supported by TPD</h4><ul><li>Break-fix support and troubleshooting</li><li>Hotfixes, on-site services</li><li>Direct-to-customer support</li><li>Hands-on support in a production environment</li><li>Sales pipeline planning</li><li>Complete demo environments</li></ul></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-ms">🏷</div><div class="sec-title">Create a Partner Logo &amp; Certified Letter</div></div>
+      <div class="grid2">
+        <div class="icard"><h4>🎨 Partner Logo (Badge)</h4><p>Use <strong>Logo Builder</strong> at Partner Center to create a partner logo (badge) on your sales and marketing materials. Logos can showcase your Solutions Partner designation, specialization, or Azure Expert MSP status.</p></div>
+        <div class="icard"><h4>📜 Certified Letter</h4><p>Create a certified letter to prove your Microsoft partnership and credibility if you have attained a Solutions Partner designation, earned a specialization or Azure Expert MSP, or have an active Channel Partner Agreement (CPA).</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-ms">🚀</div><div class="sec-title">Join the Partnership Program — Packages</div></div>
+      <div class="grid2">
+        <div class="icard" style="border-top:3px solid var(--ms);"><h4>Partner Success Core Benefits — $925/year</h4><ul><li>Up to 25 users across 26 software products</li><li>$2,400 of Azure credits</li><li>Microsoft AI Cloud Partner Program Concierge</li><li>5 technical support and consultation hours</li><li>2 partner cloud support incidents</li></ul><div style="font-size:1.1rem;font-weight:800;color:var(--ms-dk);margin-top:.5rem;">$925/year</div></div>
+        <div class="icard" style="border-top:3px solid var(--ms-dk);"><h4>Partner Success Expanded Benefits — $4,125/year</h4><ul><li>Up to 35 users across 50 software products including Microsoft 365 Copilot and Defender for Endpoint P2</li><li>$5,000 of Azure credits</li><li>Unlimited technical presales and deployment hours</li><li>10 technical support and consultation hours</li><li>5 partner cloud support incidents</li></ul><div style="font-size:1.1rem;font-weight:800;color:var(--ms-dk);margin-top:.5rem;">$4,125/year</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ SCORE CALCULATOR ══════════ -->
+  <div id="tab-calculator" class="panel">
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-badge c-ms">🧮</div><div class="sec-title">Partner Capability Score Calculator</div></div>
+      <div class="notice">Estimate your Partner Capability Score for any Azure solution area (Infrastructure, Digital &amp; App Innovation). Adjust the sliders to reflect your current situation.</div>
+
+      <div class="calc-card">
+        <div class="calc-title">Adjust your metrics to estimate your score</div>
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label>Net Customer Adds (max 3 → 30 pts)</label>
+            <input type="range" min="0" max="3" step="1" value="0" id="nca" oninput="calcScore()">
+            <div class="val-display" id="nca-val">0 customers → 0 pts</div>
+          </div>
+          <div class="calc-field">
+            <label>Intermediate Cert holders (max 5 → 20 pts)</label>
+            <input type="range" min="0" max="5" step="1" value="0" id="intcert" oninput="calcScore()">
+            <div class="val-display" id="intcert-val">0 people → 0 pts</div>
+          </div>
+          <div class="calc-field">
+            <label>Advanced Cert holders (max 5 → 20 pts)</label>
+            <input type="range" min="0" max="5" step="1" value="0" id="advcert" oninput="calcScore()">
+            <div class="val-display" id="advcert-val">0 people → 0 pts</div>
+          </div>
+          <div class="calc-field">
+            <label>ACR Growth % YoY (max 20% → 20 pts)</label>
+            <input type="range" min="0" max="20" step="1" value="0" id="usage" oninput="calcScore()">
+            <div class="val-display" id="usage-val">0% growth → 0 pts</div>
+          </div>
+          <div class="calc-field">
+            <label>Distinct Azure SL2 Deployments (max 5 → 10 pts)</label>
+            <input type="range" min="0" max="5" step="1" value="0" id="dep" oninput="calcScore()">
+            <div class="val-display" id="dep-val">0 deployments → 0 pts</div>
+          </div>
+        </div>
+        <div class="calc-result">
+          <div>
+            <div class="calc-score" id="score-display">0</div>
+            <div class="calc-score-lbl">/ 100 pts</div>
+          </div>
+          <div class="calc-bar-wrap">
+            <div class="calc-bar-track"><div class="calc-bar-fill" id="score-bar" style="width:0%"></div></div>
+            <div class="calc-status fail" id="score-status">Need 70+ pts with &gt;0 in all categories to qualify</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="icard">
+        <h4>How this calculator works</h4>
+        <ul>
+          <li>Based on the <strong>Enterprise (ENT) track</strong> for Infrastructure / Digital &amp; App Innovation</li>
+          <li>Net Customer Adds: 10 pts per customer, max 3 customers = 30 pts</li>
+          <li>Intermediate Certs: 4 pts per person (after prerequisites met), max 5 people = 20 pts</li>
+          <li>Advanced Certs: 4 pts per person (after prerequisites met), max 5 people = 20 pts</li>
+          <li>Usage Growth: 1 pt per 1% ACR growth YoY, max 20%</li>
+          <li>Deployments: 2 pts per distinct Azure SL2 workload, max 5 services = 10 pts</li>
+          <li>To qualify, you need <strong>70+ pts total</strong> with &gt;0 in every category</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<footer>
+  <svg width="13" height="13" viewBox="0 0 20 20" style="vertical-align:middle;margin-right:.4rem;"><rect x="1" y="1" width="8" height="8" fill="#f25022"/><rect x="11" y="1" width="8" height="8" fill="#7fba00"/><rect x="1" y="11" width="8" height="8" fill="#00a4ef"/><rect x="11" y="11" width="8" height="8" fill="#ffb900"/></svg>
+  <b>Project Partner Mentor</b> · Bryan Pang · April 2026 · Always refer to official Microsoft websites for the latest updates.
+</footer>
+
+<script>
+// ── TAB SWITCHING ──
+function switchTab(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+  btn.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function switchTabById(id) {
+  const btn = document.querySelector(`.tab-btn[data-tab="${id}"]`);
+  if (btn) switchTab(id, btn);
+}
+
+// ── FAQ ACCORDION ──
+function tog(row) {
+  const ans = row.nextElementSibling;
+  const open = row.classList.toggle('open');
+  ans.classList.toggle('open', open);
+}
+
+// ── SEARCH ──
+const si = document.getElementById('search-input');
+si.addEventListener('input', () => {
+  const q = si.value.trim().toLowerCase();
+  if (!q) {
+    document.querySelectorAll('.fr').forEach(r => r.classList.remove('hidden'));
+    return;
+  }
+  document.querySelectorAll('.fr').forEach(row => {
+    const span = row.querySelector('.fq');
+    if (!span) return;
+    const match = span.textContent.toLowerCase().includes(q);
+    row.classList.toggle('hidden', !match);
+    // If any match found, switch to that panel
+  });
+  // Find which panel has results and switch to it
+  document.querySelectorAll('.panel').forEach(panel => {
+    const visible = [...panel.querySelectorAll('.fr')].some(r => !r.classList.contains('hidden'));
+    if (visible && !panel.classList.contains('active')) {
+      const panelId = panel.id.replace('tab-', '');
+      const btn = document.querySelector(`.tab-btn[data-tab="${panelId}"]`);
+      if (btn) { panel.classList.add('active'); btn.classList.add('active'); }
+    }
+  });
+});
+
+// ── SCORE CALCULATOR ──
+function calcScore() {
+  const nca = parseInt(document.getElementById('nca').value);
+  const intc = parseInt(document.getElementById('intcert').value);
+  const advc = parseInt(document.getElementById('advcert').value);
+  const usage = parseInt(document.getElementById('usage').value);
+  const dep = parseInt(document.getElementById('dep').value);
+
+  const ncaPts = nca * 10;
+  const intPts = intc * 4;
+  const advPts = advc * 4;
+  const usagePts = usage;
+  const depPts = dep * 2;
+  const total = ncaPts + intPts + advPts + usagePts + depPts;
+
+  document.getElementById('nca-val').textContent = `${nca} customer${nca !== 1 ? 's' : ''} → ${ncaPts} pts`;
+  document.getElementById('intcert-val').textContent = `${intc} person${intc !== 1 ? 's' : ''} → ${intPts} pts`;
+  document.getElementById('advcert-val').textContent = `${advc} person${advc !== 1 ? 's' : ''} → ${advPts} pts`;
+  document.getElementById('usage-val').textContent = `${usage}% growth → ${usagePts} pts`;
+  document.getElementById('dep-val').textContent = `${dep} deployment${dep !== 1 ? 's' : ''} → ${depPts} pts`;
+
+  const scoreEl = document.getElementById('score-display');
+  const barEl = document.getElementById('score-bar');
+  const statusEl = document.getElementById('score-status');
+  
+  scoreEl.textContent = total;
+  barEl.style.width = Math.min(total, 100) + '%';
+
+  const allNonZero = nca > 0 && intc > 0 && advc > 0 && usage > 0 && dep > 0;
+  if (total >= 70 && allNonZero) {
+    statusEl.textContent = '✅ Qualified for Solutions Partner Designation!';
+    statusEl.className = 'calc-status pass';
+    barEl.style.background = 'linear-gradient(90deg,#e8f5e8,#107c10)';
+  } else if (total >= 70 && !allNonZero) {
+    statusEl.textContent = '⚠ 70+ pts but some categories are at 0 — need >0 in all categories';
+    statusEl.className = 'calc-status fail';
+    barEl.style.background = 'linear-gradient(90deg,var(--ms-lt),var(--amber))';
+  } else {
+    const needed = 70 - total;
+    statusEl.textContent = `Need ${needed} more pts to qualify (70+ required with >0 in all categories)`;
+    statusEl.className = 'calc-status fail';
+    barEl.style.background = 'linear-gradient(90deg,var(--ms-lt),var(--ms))';
+  }
+}
+
+// Search: remove hidden on clear
+si.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { si.value = ''; document.querySelectorAll('.fr').forEach(r => r.classList.remove('hidden')); }
+});
+</script>
+</body>
+</html>
